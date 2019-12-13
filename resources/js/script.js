@@ -2,42 +2,32 @@
 var passwordEl = document.querySelector("#password");
 var btngenerateEl = document.querySelector("#generate");
 var btncopyEl = document.querySelector("#copy");
-console.log(passwordEl, btngenerateEl, btncopyEl);
 
 //Create a function for clicking on the button
-btngenerateEl.addEventListener("click", function(){
+btngenerateEl.addEventListener("click", function () {
+   
     //Prompt to get desired character length
     var charLength = prompt("How many characters would you like your new password to be? Pick a number between 8 and 128.");
-    
-    
-    //Create a warning for if prompt about only inputing numbers
-    // if (charLength === "" || charLength <= 7 || charLength >= 129) {
-    //     for (x = 0; x < 3; x++) {
-    //         alert("Please enter a vaild number that is between 8 and 128.");
-    //         var charLength = prompt("How many characters would you like your new password to be? Pick a number between 8 and 128.");
-    //     }
-    // }
-    
-    
+
     //Run program if a character range is choosen between 8 and 128;
     if ((charLength >= 8) && (charLength <= 128)) {
-    
+
         //create variables for password generater
         let symbols = "!'#$%&()*+-./;:<>=?@[]{}~^";
         let numbers = "0123456789";
         let lowerCase = "abcdefghijklmnopqrstuvwxyz";
         let upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    
+
         //create a blank string for new password generated;
         let newPassword = "";
-    
+
         //prompt user which type of characters they can choose from.
         let genSymbols = confirm("Would you like to use special characters? i.e. (!, $, %, etc.)");
         let genNumbers = confirm("Would you like to use numbers?");
         let genLowerCase = confirm("Would you like to use lowercase letters?");
         let genUpperCase = confirm("Would you like to use uppercase letter?");
-    
-        //create a variable that adds all the new characters together
+
+        //create variables that adds all the new characters together
         var allCharacters = symbols + numbers + lowerCase + upperCase;
         var a = symbols + numbers + lowerCase;
         var b = symbols + numbers + upperCase;
@@ -49,7 +39,7 @@ btngenerateEl.addEventListener("click", function(){
         var h = numbers + lowerCase;
         var j = numbers + upperCase;
         var k = lowerCase + upperCase;
-    
+
         //create if statments with loops that matches with every combination of passwords (figure out a function for this later)
         if ((genSymbols === true) && (genNumbers === true) && (genLowerCase === true) && (genUpperCase === true)) {
             for (i = 0; i < charLength; i++) {
@@ -141,35 +131,48 @@ btngenerateEl.addEventListener("click", function(){
                 newPassword += a.charAt(character, character + 1);
             }
         }
-        console.log(newPassword);
+
+        //Generate new password into text area
         passwordEl.textContent = newPassword;
     }
-    
+
 })
 
-btncopyEl.addEventListener("click", function(){
+//Copy to clip board button
+btncopyEl.addEventListener("click", function () {
     passwordEl.select();
     document.execCommand("copy");
     alert("Copied your new password");
 })
 
 
+//Create a warning for if prompt about only inputing numbers
+
+// if (charLength === "" || charLength <= 7 || charLength >= 129) {
+//     for (x = 0; x < 3; x++) {
+//         alert("Please enter a vaild number that is between 8 and 128.");
+//         var charLength = prompt("How many characters would you like your new password to be? Pick a number between 8 and 128.");
+//     }
+// }
 
 
 
 //create if statments for which functions based on user inputs (true excute function, false skip)
+
 //Generate random symbol
 // if(genSymbols){
-//     var newSymbol = (Math.floor(Math.random() * symbols.length));    
-// }else{ var newSymbol = null}
-// //Generate random number
+    //     var newSymbol = (Math.floor(Math.random() * symbols.length));    
+    // }else{ var newSymbol = null}
+
+ //Generate random number
 // if(genNumbers){
-//     var newNumber = (Math.floor(Math.random() * numbers.length));    
-// }else{ var newNumber = null}
-// //Generate random lowercase letter
-// if(genLowerCase){
-//     var newLowerCase = (Math.floor(Math.random() * lowerCase.length));    
+    //     var newNumber = (Math.floor(Math.random() * numbers.length));    
+    // }else{ var newNumber = null}
+    // //Generate random lowercase letter
+    // if(genLowerCase){
+        //     var newLowerCase = (Math.floor(Math.random() * lowerCase.length));    
 // }else{ var newLowerCase = null}
+
 // //Generate random uppercase letter
 // if(genUpperCase){
 //     var newUpperCase = (Math.floor(Math.random() * upperCase.length));    
@@ -184,7 +187,7 @@ btncopyEl.addEventListener("click", function(){
 //     let upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 //     //combind all arrays to one variable(password)
 
-//     //create a password string that the computer can spit out
+//*********************create a password string that the computer can spit out
 //     let password = "";
 //     //create loop to run character generator 10 times
 //     for (var i = 0; i < length; i++) {

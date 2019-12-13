@@ -1,0 +1,47 @@
+/********************************** Header ************************/
+h1 {
+    text-align: center;
+}
+
+/********************************** Section/content **********************/
+section{
+    border: solid 1px #cccccc;
+    background: #ffffff;
+    padding: 5%;
+    width: 70%;
+    margin: auto;
+}
+
+h2 {
+    padding-bottom: 0%;
+
+}
+
+#password {
+    display: block;
+    margin: 0;
+    border: dashed 3px #7777777e;
+    border-radius: 5px;
+    height: 100px;
+    width: 100%;
+    text-align: center;
+    padding-top: 2%;
+}
+
+button {
+    padding: 2% 8%;
+    background: rgb(245, 42, 42);
+    border: none;
+    border-radius: 20px;
+    color: white;
+    display: block;
+    margin: auto;
+    width: 70%;
+    height: 130%;
+}
+
+@media screen and (max-width: 768px){
+    #generate{
+        margin-bottom: 2px;
+    }
+}
